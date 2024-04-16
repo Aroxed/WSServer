@@ -12,6 +12,9 @@
       ws.onmessage = (e)=> { alert('Message received: ' + e.data)}
       ws.onerror = (e)=> {alert('Error happened: ' + e)}
     }
+    function disconnect() {
+        ws.close();
+    }
     function sendCurrentTime() {
       //send data to the WebSocket server
       ws.send(new Date())
@@ -20,6 +23,7 @@
 </head>
 <body>
   <button onclick="connect()">Connect to Websocket server</button>
+  <button onclick="disconnect()">Disconnect from Websocket server</button>
   <button onclick="sendCurrentTime()">Send current time</button>
 </body>
 </html>
